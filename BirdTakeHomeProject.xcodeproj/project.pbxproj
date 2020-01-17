@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8A623D2373D004B1EB0 /* AppDelegate.swift */; };
 		452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8A823D2373D004B1EB0 /* SceneDelegate.swift */; };
-		452BC8AB23D2373D004B1EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8AA23D2373D004B1EB0 /* ViewController.swift */; };
-		452BC8AE23D2373D004B1EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8AC23D2373D004B1EB0 /* Main.storyboard */; };
 		452BC8B023D2373E004B1EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8AF23D2373E004B1EB0 /* Assets.xcassets */; };
 		452BC8B323D2373E004B1EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8B123D2373E004B1EB0 /* LaunchScreen.storyboard */; };
+		452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8BE23D241BA004B1EB0 /* Router.swift */; };
+		452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C123D243E4004B1EB0 /* MapViewController.swift */; };
+		452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */; };
+		452BC8C723D24862004B1EB0 /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8C623D24862004B1EB0 /* buildings.json */; };
+		452BC8C923D2489C004B1EB0 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C823D2489C004B1EB0 /* Building.swift */; };
+		452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CA23D24B78004B1EB0 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		452BC8A323D2373D004B1EB0 /* BirdTakeHomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdTakeHomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452BC8A623D2373D004B1EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		452BC8A823D2373D004B1EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		452BC8AA23D2373D004B1EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		452BC8AD23D2373D004B1EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452BC8AF23D2373E004B1EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452BC8B223D2373E004B1EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452BC8B423D2373E004B1EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		452BC8BE23D241BA004B1EB0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		452BC8C123D243E4004B1EB0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Ext.swift"; sourceTree = "<group>"; };
+		452BC8C623D24862004B1EB0 /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
+		452BC8C823D2489C004B1EB0 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		452BC8CA23D24B78004B1EB0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,67 @@
 		452BC8A523D2373D004B1EB0 /* BirdTakeHomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				452BC8BB23D24132004B1EB0 /* Model */,
+				452BC8BA23D2412C004B1EB0 /* UI */,
+				452BC8BE23D241BA004B1EB0 /* Router.swift */,
 				452BC8A623D2373D004B1EB0 /* AppDelegate.swift */,
 				452BC8A823D2373D004B1EB0 /* SceneDelegate.swift */,
-				452BC8AA23D2373D004B1EB0 /* ViewController.swift */,
-				452BC8AC23D2373D004B1EB0 /* Main.storyboard */,
 				452BC8AF23D2373E004B1EB0 /* Assets.xcassets */,
 				452BC8B123D2373E004B1EB0 /* LaunchScreen.storyboard */,
 				452BC8B423D2373E004B1EB0 /* Info.plist */,
+				452BC8C623D24862004B1EB0 /* buildings.json */,
 			);
 			path = BirdTakeHomeProject;
+			sourceTree = "<group>";
+		};
+		452BC8BA23D2412C004B1EB0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8C023D243C9004B1EB0 /* Map */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		452BC8BB23D24132004B1EB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8BD23D241A2004B1EB0 /* Responses */,
+				452BC8BC23D2419A004B1EB0 /* Utils */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		452BC8BC23D2419A004B1EB0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8C323D24706004B1EB0 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		452BC8BD23D241A2004B1EB0 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8C823D2489C004B1EB0 /* Building.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		452BC8C023D243C9004B1EB0 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8C123D243E4004B1EB0 /* MapViewController.swift */,
+				452BC8CA23D24B78004B1EB0 /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		452BC8C323D24706004B1EB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				452BC8B323D2373E004B1EB0 /* LaunchScreen.storyboard in Resources */,
+				452BC8C723D24862004B1EB0 /* buildings.json in Resources */,
 				452BC8B023D2373E004B1EB0 /* Assets.xcassets in Resources */,
-				452BC8AE23D2373D004B1EB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452BC8AB23D2373D004B1EB0 /* ViewController.swift in Sources */,
+				452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */,
+				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
+				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
 				452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */,
+				452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */,
+				452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */,
 				452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +211,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		452BC8AC23D2373D004B1EB0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				452BC8AD23D2373D004B1EB0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		452BC8B123D2373E004B1EB0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
