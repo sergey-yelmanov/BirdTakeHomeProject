@@ -49,7 +49,7 @@ final class MapView: UIView {
 
         mapView.pin(to: self)
 
-        let region = (center: CLLocationCoordinate2D(latitude: 50.45466, longitude: 30.5238), delta: 0.07)
+        let region = (center: CLLocationCoordinate2D(latitude: 50.45466, longitude: 30.5238), delta: 0.65)
 
         mapView.region = MKCoordinateRegion(
             center: region.center,
