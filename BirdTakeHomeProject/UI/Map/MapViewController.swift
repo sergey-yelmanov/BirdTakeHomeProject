@@ -15,7 +15,7 @@ final class MapViewController: UIViewController {
     override func loadView() {
         super.loadView()
 
-        view = MapView()
+        view = MapView(buildings: buildings)
     }
 
 }

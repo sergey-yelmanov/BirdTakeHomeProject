@@ -26,7 +26,6 @@ struct Building: Decodable {
         case image = "image_url"
     }
 
-
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 

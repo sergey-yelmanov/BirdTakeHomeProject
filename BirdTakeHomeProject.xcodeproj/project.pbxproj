@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,11 @@
 		452BC8C723D24862004B1EB0 /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8C623D24862004B1EB0 /* buildings.json */; };
 		452BC8C923D2489C004B1EB0 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C823D2489C004B1EB0 /* Building.swift */; };
 		452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CA23D24B78004B1EB0 /* MapView.swift */; };
+		452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */; };
+		455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */; };
+		455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AD23D3667F004BB19F /* UIView+Ext.swift */; };
+		455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */; };
+		FA2B7F95A28F3B36417E9BB0 /* Pods_BirdTakeHomeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,13 @@
 		452BC8C623D24862004B1EB0 /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
 		452BC8C823D2489C004B1EB0 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		452BC8CA23D24B78004B1EB0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingAnnotationView.swift; sourceTree = "<group>"; };
+		455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
+		455A03AD23D3667F004BB19F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		5A9E713161763ECFE6844D82 /* Pods-BirdTakeHomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdTakeHomeProject.release.xcconfig"; path = "Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject.release.xcconfig"; sourceTree = "<group>"; };
+		82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirdTakeHomeProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41EB80AF31CE9AD270CB1C4 /* Pods-BirdTakeHomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdTakeHomeProject.debug.xcconfig"; path = "Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2B7F95A28F3B36417E9BB0 /* Pods_BirdTakeHomeProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +63,8 @@
 			children = (
 				452BC8A523D2373D004B1EB0 /* BirdTakeHomeProject */,
 				452BC8A423D2373D004B1EB0 /* Products */,
+				ED0C3105ECAF565408558484 /* Pods */,
+				841207C896CEC1161824CC45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +130,7 @@
 			children = (
 				452BC8C123D243E4004B1EB0 /* MapViewController.swift */,
 				452BC8CA23D24B78004B1EB0 /* MapView.swift */,
+				455A03AF23D367AF004BB19F /* Components */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -123,8 +139,36 @@
 			isa = PBXGroup;
 			children = (
 				452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */,
+				455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */,
+				455A03AD23D3667F004BB19F /* UIView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		455A03AF23D367AF004BB19F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */,
+				452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		841207C896CEC1161824CC45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED0C3105ECAF565408558484 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C41EB80AF31CE9AD270CB1C4 /* Pods-BirdTakeHomeProject.debug.xcconfig */,
+				5A9E713161763ECFE6844D82 /* Pods-BirdTakeHomeProject.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 452BC8B723D2373E004B1EB0 /* Build configuration list for PBXNativeTarget "BirdTakeHomeProject" */;
 			buildPhases = (
+				57E81B4C88570E70E1513589 /* [CP] Check Pods Manifest.lock */,
 				452BC89F23D2373D004B1EB0 /* Sources */,
 				452BC8A023D2373D004B1EB0 /* Frameworks */,
 				452BC8A123D2373D004B1EB0 /* Resources */,
+				3F855EBC1126C75D14240446 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,16 +239,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F855EBC1126C75D14240446 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57E81B4C88570E70E1513589 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BirdTakeHomeProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		452BC89F23D2373D004B1EB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */,
 				452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */,
+				455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */,
 				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
 				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
+				452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */,
 				452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */,
 				452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */,
+				455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */,
 				452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */,
 				452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */,
 			);
@@ -338,6 +430,7 @@
 		};
 		452BC8B823D2373E004B1EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41EB80AF31CE9AD270CB1C4 /* Pods-BirdTakeHomeProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +449,7 @@
 		};
 		452BC8B923D2373E004B1EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A9E713161763ECFE6844D82 /* Pods-BirdTakeHomeProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
