@@ -12,12 +12,9 @@ import Cluster
 
 final class MapView: UIView {
 
-    // MARK: - Properties
-
-    var mapView: MKMapView!
-
     // MARK: - Private properties
 
+    private var mapView: MKMapView!
     private var manager: ClusterManager!
 
     // MARK: - Initializers
@@ -49,7 +46,13 @@ final class MapView: UIView {
 
         mapView.pin(to: self)
 
-        let region = (center: CLLocationCoordinate2D(latitude: 50.45466, longitude: 30.5238), delta: 0.65)
+        let region = (
+            center: CLLocationCoordinate2D(
+                latitude: Constants.Coordinates.kievLatitude,
+                longitude: Constants.Coordinates.kievLongitude
+            ),
+            delta: 0.65
+        )
 
         mapView.region = MKCoordinateRegion(
             center: region.center,
@@ -71,7 +74,6 @@ final class MapView: UIView {
 
         buildings.forEach {
             let annotation = Annotation()
-            annotation.title = $0.name
             annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
             annotations.append(annotation)
         }
@@ -90,11 +92,14 @@ extension MapView: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ClusterAnnotation {
-            return CountClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster")
+            return CountClusterAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: Constants.AnnotationReuseIdentifier.cluster
+            )
         } else {
             return BuildingAnnotationView(
                 annotation: annotation,
-                reuseIdentifier: "pin",
+                reuseIdentifier: Constants.AnnotationReuseIdentifier.pin,
                 style: .color(UIColor.orange, radius: 8)
             )
         }
@@ -120,7 +125,7 @@ extension MapView: MKMapViewDelegate {
             }
             mapView.setVisibleMapRect(zoomRect, animated: true)
         } else {
-            print("==============")
+            #warning("add showDetailsAction")
         }
     }
 

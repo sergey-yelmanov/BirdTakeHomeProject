@@ -21,6 +21,7 @@
 		455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */; };
 		455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AD23D3667F004BB19F /* UIView+Ext.swift */; };
 		455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */; };
+		45D73B5323D3A33300E13FE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D73B5223D3A33300E13FE1 /* Constants.swift */; };
 		FA2B7F95A28F3B36417E9BB0 /* Pods_BirdTakeHomeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		455A03AD23D3667F004BB19F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		45D73B5223D3A33300E13FE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A9E713161763ECFE6844D82 /* Pods-BirdTakeHomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdTakeHomeProject.release.xcconfig"; path = "Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject.release.xcconfig"; sourceTree = "<group>"; };
 		82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirdTakeHomeProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41EB80AF31CE9AD270CB1C4 /* Pods-BirdTakeHomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdTakeHomeProject.debug.xcconfig"; path = "Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		452BC8BC23D2419A004B1EB0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				45D73B5223D3A33300E13FE1 /* Constants.swift */,
 				452BC8C323D24706004B1EB0 /* Extensions */,
 			);
 			path = Utils;
@@ -297,6 +300,7 @@
 				455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */,
 				452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */,
 				452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */,
+				45D73B5323D3A33300E13FE1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

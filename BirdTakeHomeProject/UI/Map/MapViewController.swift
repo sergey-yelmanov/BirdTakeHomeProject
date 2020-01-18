@@ -25,8 +25,10 @@ final class MapViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            blurEffectView.isHidden = UIDevice.current.orientation.isLandscape
+        let device = UIDevice.current
+        
+        if device.userInterfaceIdiom == .phone {
+            blurEffectView.isHidden = device.orientation.isLandscape
         }
     }
 
