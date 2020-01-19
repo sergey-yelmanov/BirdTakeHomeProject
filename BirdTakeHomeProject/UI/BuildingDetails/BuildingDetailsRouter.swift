@@ -21,12 +21,7 @@ final class BuildingDetailsRouter {
         
         vc.building = building
 
-        if Constants.Device.isPhone {
-            let navController = UINavigationController(rootViewController: vc)
-            parent.present(navController, animated: true)
-        } else {
-            parent.present(vc, animated: true)
-        }
+        parent.present(vc, animated: true)
     }
     
 }

@@ -18,31 +18,8 @@ final class BuildingDetailsView: UIView {
 
     private var imageView = UIImageView()
     private var nameLabel = UILabel()
+    private var dimmedView: UIView!
     private var gradientLayer: CAGradientLayer!
-
-    private var imageViewPortraitConstraintForPhone = [NSLayoutConstraint]()
-    private var imageViewLandscapeConstraintForPhone = [NSLayoutConstraint]()
-
-    private var nameLabelPortraitConstraintForPhone = [NSLayoutConstraint]()
-    private var nameLabelLandscapeConstraintForPhone = [NSLayoutConstraint]()
-
-    private lazy var dimmedView: UIView = {
-        let view = UIView()
-
-        view.alpha = 0.5
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        imageView.addSubview(view)
-
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0),
-            view.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 0),
-            view.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 0),
-            view.heightAnchor.constraint(equalToConstant: 44)
-        ])
-
-        return view
-    }()
 
     // MARK: - Initializers
     
@@ -71,9 +48,8 @@ final class BuildingDetailsView: UIView {
 
     private func configureUI() {
         backgroundColor = .white
-        configureImageView()
         configureNameLabel()
-        configureConstaraints()
+        configureImageView()
     }
 
     private func createGradientLayer() {
@@ -94,9 +70,7 @@ final class BuildingDetailsView: UIView {
 
         addSubview(imageView)
 
-        if Constants.Device.isPhone {
-            configureImageViewForPhone()
-        }
+        Constants.Device.isPhone ? configureImageViewForPhone() : configureImageViewForPad()
 
         imageView.loadImage(fromUrl: building.image, withPlaceholer: nil)
     }
@@ -106,6 +80,16 @@ final class BuildingDetailsView: UIView {
         imageView.layer.masksToBounds = true
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 32),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            imageView.aspectRation(3/4)
+        ])
+    }
+    private func configureImageViewForPad() {
+        imageView.pin(to: self)
     }
 
     // MARK: - Name label configurations
@@ -122,40 +106,24 @@ final class BuildingDetailsView: UIView {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(nameLabel)
+
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
 
     private func configureNameLabelForPad() {
+        configureDimmedView()
+
         nameLabel.text = building.presentableName
         nameLabel.textColor = .white
         nameLabel.font = .boldSystemFont(ofSize: 18)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        addSubview(nameLabel)
-    }
-
-    // MARK: - Constraints configuration
-
-    private func configureConstaraints() {
-        applyConstraintsForPhone()
-        applyConstaintsForPad()
-    }
-
-    func applyConstraintsForPhone() {
-        guard Constants.Device.isPhone else { return }
-
-        if Constants.Device.isLandscape {
-            applyNameLabelLandscapeConstaintsForPhone()
-            applyImageViewLandscapeConstaintsForPhone()
-        } else {
-            applyNameLabelPortraitConstaintsForPhone()
-            applyImageViewPortraitConstaintsForPhone()
-        }
-    }
-
-    private func applyConstaintsForPad() {
-        guard Constants.Device.isPad else { return }
-
-        imageView.pin(to: self)
+        imageView.addSubview(nameLabel)
 
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: dimmedView.centerYAnchor),
@@ -163,55 +131,19 @@ final class BuildingDetailsView: UIView {
         ])
     }
 
-    private func applyImageViewPortraitConstaintsForPhone() {
-        NSLayoutConstraint.deactivate(imageViewLandscapeConstraintForPhone)
+    private func configureDimmedView() {
+        dimmedView = UIView()
+        dimmedView.alpha = 0.3
+        dimmedView.translatesAutoresizingMaskIntoConstraints = false
 
-        imageViewPortraitConstraintForPhone = [
-            imageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 32),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            imageView.aspectRation(3/4)
-        ]
+        imageView.addSubview(dimmedView)
 
-        NSLayoutConstraint.activate(imageViewPortraitConstraintForPhone)
-    }
-
-    private func applyImageViewLandscapeConstaintsForPhone() {
-        NSLayoutConstraint.deactivate(imageViewPortraitConstraintForPhone)
-
-        imageViewLandscapeConstraintForPhone = [
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            imageView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
-            imageView.aspectRation(3/4)
-        ]
-
-        NSLayoutConstraint.activate(imageViewLandscapeConstraintForPhone)
-    }
-
-    private func applyNameLabelPortraitConstaintsForPhone() {
-        NSLayoutConstraint.deactivate(nameLabelLandscapeConstraintForPhone)
-
-        nameLabelPortraitConstraintForPhone = [
-            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ]
-
-        NSLayoutConstraint.activate(nameLabelPortraitConstraintForPhone)
-    }
-
-    private func applyNameLabelLandscapeConstaintsForPhone() {
-        NSLayoutConstraint.deactivate(nameLabelPortraitConstraintForPhone)
-
-        nameLabelLandscapeConstraintForPhone = [
-            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.trailingAnchor, constant: 0)
-        ]
-
-        NSLayoutConstraint.activate(nameLabelLandscapeConstraintForPhone)
+        NSLayoutConstraint.activate([
+            dimmedView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0),
+            dimmedView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 0),
+            dimmedView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 0),
+            dimmedView.heightAnchor.constraint(equalToConstant: 44)
+        ])
     }
     
 }

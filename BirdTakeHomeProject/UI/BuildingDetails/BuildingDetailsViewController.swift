@@ -20,50 +20,18 @@ final class BuildingDetailsViewController: UIViewController {
         super.loadView()
 
         configureUI()
-        subscribeForNotifications()
-    }
-
-    deinit {
-       NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - UI Configuration
 
     private func configureUI() {
         view = BuildingDetailsView(building: building)
-
-        if Constants.Device.isPhone {
-            let closeButton = UIBarButtonItem(
-                barButtonSystemItem: .close,
-                target: self,
-                action: #selector(close)
-            )
-
-            navigationItem.leftBarButtonItem = closeButton
-        }
-    }
-
-    // MARK: - Notifications
-
-    private func subscribeForNotifications() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(rotated),
-            name: UIDevice.orientationDidChangeNotification,
-            object: nil
-        )
     }
 
     // MARK: - Selectors
 
     @objc private func close() {
         dismiss(animated: true)
-    }
-
-    @objc private func rotated() {
-        guard let buildingDetailsView = view as? BuildingDetailsView else { return }
-
-        buildingDetailsView.applyConstraintsForPhone()
     }
 
 }

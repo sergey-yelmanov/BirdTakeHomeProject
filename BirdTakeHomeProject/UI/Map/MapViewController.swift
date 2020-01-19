@@ -24,13 +24,6 @@ final class MapViewController: UIViewController {
         configureUI()
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        if Constants.Device.isPhone {
-            blurEffectView.isHidden = Constants.Device.isLandscape
-        }
-    }
-
     // MARK: - UI Configuration
 
     private func configureUI() {

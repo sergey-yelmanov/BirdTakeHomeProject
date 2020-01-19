@@ -34,10 +34,6 @@ enum Constants {
             UIDevice.current.userInterfaceIdiom == .pad
         }
 
-        static var isLandscape: Bool {
-            UIDevice.current.orientation.isLandscape
-        }
-        
     }
 
 }
