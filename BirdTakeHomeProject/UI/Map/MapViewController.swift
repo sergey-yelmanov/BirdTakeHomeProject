@@ -25,17 +25,17 @@ final class MapViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let device = UIDevice.current
         
-        if device.userInterfaceIdiom == .phone {
-            blurEffectView.isHidden = device.orientation.isLandscape
+        if Constants.Device.isPhone {
+            blurEffectView.isHidden = Constants.Device.isLandscape
         }
     }
 
     // MARK: - UI Configuration
 
     private func configureUI() {
-        view = MapView(buildings: buildings)
+        view.backgroundColor = .white
+        view = MapView(buildings: buildings, showDetailsAction: showDetails)
         configureBlurEffectView()
     }
 
@@ -52,6 +52,12 @@ final class MapViewController: UIViewController {
             blurEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             blurEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+    }
+
+    // MARK: - Actions
+
+    private func showDetails(withBuilding building: Building) {
+        Router.shared.buildingsDetails.showBuildingDetails(fromParent: self, building: building)
     }
 
 }

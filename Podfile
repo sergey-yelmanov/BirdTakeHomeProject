@@ -6,5 +6,6 @@ target 'BirdTakeHomeProject' do
   use_frameworks!
 	
 pod 'Cluster'
+pod 'Kingfisher'
 
 end

@@ -8,21 +8,23 @@
 
 import UIKit
 
-class Router {
+final class Router {
 
     private var window: UIWindow!
-    static var instance: Router!
+    static var shared: Router!
 
     // MARK: - Inits
 
     init(_ sceneWindow: UIWindow) {
         window = sceneWindow
-        Router.instance = self
+        Router.shared = self
     }
 
     func start() {
         window.rootViewController = MapViewController()
         window.makeKeyAndVisible()
     }
+
+    lazy var buildingsDetails: BuildingDetailsRouter = { BuildingDetailsRouter(mainRouter: self) }()
 
 }

@@ -17,5 +17,17 @@ extension UIView {
         trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
         bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
+
+    func aspectRation(_ ratio: CGFloat) -> NSLayoutConstraint {
+        NSLayoutConstraint(
+            item: self,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .width,
+            multiplier: ratio,
+            constant: 0
+        )
+    }
     
 }

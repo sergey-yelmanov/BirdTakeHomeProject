@@ -17,6 +17,10 @@ struct Building: Decodable {
     let longitude: Double
     let image: String
 
+    var presentableName: String {
+        name == "" ? "Empty name" : name
+    }
+
     enum CodingKeys: String, CodingKey {
         case id = "building_id"
         case name

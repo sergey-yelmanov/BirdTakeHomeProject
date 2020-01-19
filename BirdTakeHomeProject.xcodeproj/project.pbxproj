@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451BEB7523D4593E00358FD4 /* BuildingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7423D4593E00358FD4 /* BuildingDetailsViewController.swift */; };
+		451BEB7723D45A5F00358FD4 /* BuildingDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7623D45A5F00358FD4 /* BuildingDetailsRouter.swift */; };
+		451BEB7923D4630B00358FD4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */; };
+		451BEB8023D4E5D800358FD4 /* BuildingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7F23D4E5D800358FD4 /* BuildingDetailsView.swift */; };
 		452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8A623D2373D004B1EB0 /* AppDelegate.swift */; };
 		452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8A823D2373D004B1EB0 /* SceneDelegate.swift */; };
 		452BC8B023D2373E004B1EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8AF23D2373E004B1EB0 /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451BEB7423D4593E00358FD4 /* BuildingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsViewController.swift; sourceTree = "<group>"; };
+		451BEB7623D45A5F00358FD4 /* BuildingDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsRouter.swift; sourceTree = "<group>"; };
+		451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		451BEB7F23D4E5D800358FD4 /* BuildingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsView.swift; sourceTree = "<group>"; };
 		452BC8A323D2373D004B1EB0 /* BirdTakeHomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdTakeHomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452BC8A623D2373D004B1EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		452BC8A823D2373D004B1EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451BEB7323D458F400358FD4 /* BuildingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				451BEB7423D4593E00358FD4 /* BuildingDetailsViewController.swift */,
+				451BEB7F23D4E5D800358FD4 /* BuildingDetailsView.swift */,
+				451BEB7623D45A5F00358FD4 /* BuildingDetailsRouter.swift */,
+			);
+			path = BuildingDetails;
+			sourceTree = "<group>";
+		};
 		452BC89A23D2373D004B1EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				452BC8C023D243C9004B1EB0 /* Map */,
+				451BEB7323D458F400358FD4 /* BuildingDetails */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -144,6 +163,7 @@
 				452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */,
 				455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */,
 				455A03AD23D3667F004BB19F /* UIView+Ext.swift */,
+				451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,11 +310,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */,
+				451BEB7523D4593E00358FD4 /* BuildingDetailsViewController.swift in Sources */,
 				452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */,
+				451BEB8023D4E5D800358FD4 /* BuildingDetailsView.swift in Sources */,
 				455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */,
 				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
 				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
+				451BEB7923D4630B00358FD4 /* UIImageView+Ext.swift in Sources */,
 				452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */,
+				451BEB7723D45A5F00358FD4 /* BuildingDetailsRouter.swift in Sources */,
 				452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */,
 				452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */,
 				455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */,

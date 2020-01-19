@@ -6,7 +6,7 @@
 //  Copyright © 2020 Sergey Yelmanov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Constants {
 
@@ -21,6 +21,22 @@ enum Constants {
 
         static let kievLatitude = 50.45466
         static let kievLongitude = 30.5238
+        
+    }
+
+    enum Device {
+
+        static var isPhone: Bool {
+            UIDevice.current.userInterfaceIdiom == .phone
+        }
+
+        static var isPad: Bool {
+            UIDevice.current.userInterfaceIdiom == .pad
+        }
+
+        static var isLandscape: Bool {
+            UIDevice.current.orientation.isLandscape
+        }
         
     }
 

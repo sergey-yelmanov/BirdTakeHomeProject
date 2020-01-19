@@ -17,13 +17,19 @@ final class MapView: UIView {
     private var mapView: MKMapView!
     private var manager: ClusterManager!
 
+    private var buildings = [Building]()
+
+    private var showDetailsAction: ((Building) -> Void)?
+
     // MARK: - Initializers
 
-    init(buildings: [Building]) {
+    init(buildings: [Building], showDetailsAction: @escaping (Building) -> Void) {
+        self.buildings = buildings
+        self.showDetailsAction = showDetailsAction
         super.init(frame: .zero)
 
         configure()
-        addAnnotations(withBuildings: buildings)
+        addAnnotations()
     }
 
     required init?(coder: NSCoder) {
@@ -69,11 +75,12 @@ final class MapView: UIView {
 
     // MARK: - Adding annotations
 
-    private func addAnnotations(withBuildings buildings: [Building]) {
+    private func addAnnotations() {
         var annotations = [Annotation]()
 
         buildings.forEach {
             let annotation = Annotation()
+            annotation.title = "\($0.id)"
             annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
             annotations.append(annotation)
         }
@@ -125,7 +132,15 @@ extension MapView: MKMapViewDelegate {
             }
             mapView.setVisibleMapRect(zoomRect, animated: true)
         } else {
-            #warning("add showDetailsAction")
+            guard let temp = annotation.title, let id = Int(temp ?? "") else { return }
+
+            for building in buildings {
+                if building.id == id {
+                    showDetailsAction?(building)
+                    mapView.deselectAnnotation(view.annotation, animated: false)
+                    return
+                }
+            }
         }
     }
 
