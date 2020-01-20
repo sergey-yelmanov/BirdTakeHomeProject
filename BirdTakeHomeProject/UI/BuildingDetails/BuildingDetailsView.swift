@@ -37,7 +37,7 @@ final class BuildingDetailsView: UIView {
     // MARK: - UI Configuration
 
     private func configureUI() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         configureNameLabel()
         configureImageView()
 
@@ -97,7 +97,7 @@ final class BuildingDetailsView: UIView {
 
     private func configureNameLabelForPhone() {
         nameLabel.text = building.presentableName
-        nameLabel.textColor = .black
+        nameLabel.textColor = Constants.Colors.customTextColor
         nameLabel.font = .boldSystemFont(ofSize: 24)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 

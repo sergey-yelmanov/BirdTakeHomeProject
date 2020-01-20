@@ -10,6 +10,20 @@ import UIKit
 
 enum Constants {
 
+    enum Colors {
+
+        static var customTextColor: UIColor = {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    return .white
+                } else {
+                    return .black
+                }
+            }
+        }()
+
+    }
+
     enum AnnotationReuseIdentifier {
 
         static let cluster = "cluster"
