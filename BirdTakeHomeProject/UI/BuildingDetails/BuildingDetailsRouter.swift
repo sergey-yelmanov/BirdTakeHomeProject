@@ -18,10 +18,16 @@ final class BuildingDetailsRouter {
 
     func showBuildingDetails(fromParent parent: UIViewController, building: Building) {
         let vc = BuildingDetailsViewController()
-        
+
         vc.building = building
 
-        parent.present(vc, animated: true)
+        if Constants.Device.isPhone {
+            let navController = UINavigationController(rootViewController: vc)
+            parent.present(navController, animated: true)
+        } else {
+            parent.present(vc, animated: true)
+        }
+
     }
     
 }

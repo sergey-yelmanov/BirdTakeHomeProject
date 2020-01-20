@@ -21,6 +21,11 @@ final class BuildingDetailsView: UIView {
     private var dimmedView: UIView!
     private var gradientLayer: CAGradientLayer!
 
+    // MARK: - Constraints
+
+    private var regularConstraints = [NSLayoutConstraint]()
+    private var compactConstraints = [NSLayoutConstraint]()
+
     // MARK: - Initializers
     
     init(building: Building) {
@@ -46,6 +51,8 @@ final class BuildingDetailsView: UIView {
                 self.createGradientLayer()
             }
         }
+
+        activateCurrentConstraints()
     }
 
     private func createGradientLayer() {
@@ -77,13 +84,21 @@ final class BuildingDetailsView: UIView {
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
+        compactConstraints.append(contentsOf: [
+            imageView.widthAnchor.constraint(equalToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 2),
+            imageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            imageView.aspectRation(3/4)
+        ])
+
+        regularConstraints.append(contentsOf: [
             imageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 32),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             imageView.aspectRation(3/4)
         ])
     }
+
     private func configureImageViewForPad() {
         imageView.pin(to: self)
     }
@@ -103,7 +118,13 @@ final class BuildingDetailsView: UIView {
 
         addSubview(nameLabel)
 
-        NSLayoutConstraint.activate([
+        compactConstraints.append(contentsOf: [
+            nameLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+            nameLabel.trailingAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
+        ])
+
+        regularConstraints.append(contentsOf: [
             nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
@@ -141,6 +162,28 @@ final class BuildingDetailsView: UIView {
             dimmedView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 0),
             dimmedView.heightAnchor.constraint(equalToConstant: 44)
         ])
+    }
+
+    // MARK: - Helpers
+
+    private func activateCurrentConstraints() {
+        if Constants.Device.isPhone {
+            NSLayoutConstraint.deactivate(compactConstraints + regularConstraints)
+
+            if traitCollection.verticalSizeClass == .regular {
+                NSLayoutConstraint.activate(regularConstraints)
+            } else {
+                NSLayoutConstraint.activate(compactConstraints)
+            }
+        }
+    }
+
+    // MARK: - Trait collections
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        activateCurrentConstraints()
     }
     
 }

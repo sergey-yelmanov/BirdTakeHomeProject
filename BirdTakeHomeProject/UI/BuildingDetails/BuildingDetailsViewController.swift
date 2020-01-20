@@ -26,12 +26,33 @@ final class BuildingDetailsViewController: UIViewController {
 
     private func configureUI() {
         view = BuildingDetailsView(building: building)
+        setupNavBarButtons()
+    }
+
+    private func setupNavBarButtons() {
+        if Constants.Device.isPhone {
+            let closeButton = UIBarButtonItem(
+                barButtonSystemItem: .close,
+                target: self,
+                action: #selector(close)
+            )
+
+            navigationItem.rightBarButtonItem = closeButton
+        }
     }
 
     // MARK: - Selectors
 
     @objc private func close() {
         dismiss(animated: true)
+    }
+
+    // MARK: - trait collections
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        navigationController?.setNavigationBarHidden(traitCollection.verticalSizeClass == .regular, animated: true)
     }
 
 }
