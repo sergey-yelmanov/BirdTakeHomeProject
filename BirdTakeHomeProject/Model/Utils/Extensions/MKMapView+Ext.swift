@@ -19,6 +19,31 @@ extension MKMapView {
         
         return annotationView
     }
+
+    func fitAll(_ annotations: [MKAnnotation]) {
+        var zoomRect = MKMapRect.null
+
+        for annotation in annotations {
+            let annotationPoint = MKMapPoint(annotation.coordinate)
+            let pointRect = MKMapRect(
+                x: annotationPoint.x,
+                y: annotationPoint.y,
+                width: 0.01,
+                height: 0.01
+            )
+            if zoomRect.isNull {
+                zoomRect = pointRect
+            } else {
+                zoomRect = zoomRect.union(pointRect)
+            }
+        }
+
+        setVisibleMapRect(
+            zoomRect,
+            edgePadding: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),
+            animated: true
+        )
+    }
     
 }
 

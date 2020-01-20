@@ -22,6 +22,7 @@ final class MapViewDataProvider: NSObject {
     // MARK: - Properties
 
     private var buildings = [Building]()
+    private(set) var annotations = [IdentifableAnnotation]()
     weak var delegate: MapViewDataProviderDelegate?
 
     // MARK: - Initializers
@@ -33,8 +34,6 @@ final class MapViewDataProvider: NSObject {
     // MARK: - Adding annotations
 
     func addAnnotations() {
-        var annotations = [IdentifableAnnotation]()
-
         buildings.enumerated().forEach { index, building in
             let annotation = IdentifableAnnotation(index: index)
             annotation.coordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
@@ -76,17 +75,7 @@ extension MapViewDataProvider: MKMapViewDelegate {
         guard let annotation = view.annotation else { return }
 
         if let cluster = annotation as? ClusterAnnotation {
-            var zoomRect = MKMapRect.null
-            for annotation in cluster.annotations {
-                let annotationPoint = MKMapPoint(annotation.coordinate)
-                let pointRect = MKMapRect(x: annotationPoint.x, y: annotationPoint.y, width: 0, height: 0)
-                if zoomRect.isNull {
-                    zoomRect = pointRect
-                } else {
-                    zoomRect = zoomRect.union(pointRect)
-                }
-            }
-            mapView.setVisibleMapRect(zoomRect, animated: true)
+            mapView.fitAll(cluster.annotations)
         } else {
             guard let annotation = annotation as? IdentifableAnnotation else { return }
 

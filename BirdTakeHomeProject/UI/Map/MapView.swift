@@ -72,6 +72,12 @@ final class MapView: UIView {
         manager.clusterPosition = .average
     }
 
+    // MARK: - Helpers
+    
+    func showAllAnnotations() {
+        mapView.fitAll(mapViewDataProvider.annotations)
+    }
+
 }
 
     // MARK: - Extensions
