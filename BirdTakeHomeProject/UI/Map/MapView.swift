@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sergey Yelmanov. All rights reserved.
 //
 
-import UIKit
 import MapKit
 import Cluster
 
@@ -16,20 +15,18 @@ final class MapView: UIView {
 
     private var mapView: MKMapView!
     private var manager: ClusterManager!
-
-    private var buildings = [Building]()
+    private var mapViewDataProvider: MapViewDataProvider!
 
     private var showDetailsAction: ((Building) -> Void)?
 
     // MARK: - Initializers
 
     init(buildings: [Building], showDetailsAction: @escaping (Building) -> Void) {
-        self.buildings = buildings
         self.showDetailsAction = showDetailsAction
+        self.mapViewDataProvider = MapViewDataProvider(buildings: buildings)
         super.init(frame: .zero)
 
         configure()
-        addAnnotations()
     }
 
     required init?(coder: NSCoder) {
@@ -39,14 +36,16 @@ final class MapView: UIView {
     // MARK: - Configuration
 
     private func configure() {
-        configureMapView()
         configureClusterManager()
+        configureMapView()
     }
 
     private func configureMapView() {
         mapView = MKMapView()
-        mapView.delegate = self
         mapView.pointOfInterestFilter = .excludingAll
+        mapView.delegate = mapViewDataProvider
+        mapViewDataProvider.delegate = self
+        mapViewDataProvider.addAnnotations()
 
         addSubview(mapView)
 
@@ -73,84 +72,24 @@ final class MapView: UIView {
         manager.clusterPosition = .average
     }
 
-    // MARK: - Adding annotations
-
-    private func addAnnotations() {
-        var annotations = [IdentifableAnnotation]()
-
-        buildings.enumerated().forEach { index, building in
-            let annotation = IdentifableAnnotation(index: index)
-            annotation.coordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
-            annotations.append(annotation)
-        }
-
-        manager.add(annotations)
-        manager.reload(mapView: mapView)
-    }
-
 }
 
     // MARK: - Extensions
 
     // MARK: - Map view delegate
 
-extension MapView: MKMapViewDelegate {
+extension MapView: MapViewDataProviderDelegate {
 
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? ClusterAnnotation {
-            return CountClusterAnnotationView(
-                annotation: annotation,
-                reuseIdentifier: Constants.AnnotationReuseIdentifier.cluster
-            )
-        } else {
-            return BuildingAnnotationView(
-                annotation: annotation,
-                reuseIdentifier: Constants.AnnotationReuseIdentifier.pin,
-                style: .color(UIColor.orange, radius: 8)
-            )
-        }
+    func add(annotations: [IdentifableAnnotation]) {
+        manager.add(annotations)
     }
 
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        manager.reload(mapView: mapView) { _ in }
+    func reload() {
+        manager.reload(mapView: mapView)
     }
 
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotation = view.annotation else { return }
-
-        if let cluster = annotation as? ClusterAnnotation {
-            var zoomRect = MKMapRect.null
-            for annotation in cluster.annotations {
-                let annotationPoint = MKMapPoint(annotation.coordinate)
-                let pointRect = MKMapRect(x: annotationPoint.x, y: annotationPoint.y, width: 0, height: 0)
-                if zoomRect.isNull {
-                    zoomRect = pointRect
-                } else {
-                    zoomRect = zoomRect.union(pointRect)
-                }
-            }
-            mapView.setVisibleMapRect(zoomRect, animated: true)
-        } else {
-            guard let annotation = annotation as? IdentifableAnnotation else { return }
-
-            showDetailsAction?(buildings[annotation.index])
-            mapView.deselectAnnotation(view.annotation, animated: false)
-        }
-    }
-
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        views.forEach { $0.alpha = 0 }
-
-        UIView.animate(
-            withDuration: 0.35,
-            delay: 0,
-            usingSpringWithDamping: 1,
-            initialSpringVelocity: 0,
-            options: [],
-            animations: {
-                views.forEach { $0.alpha = 1 }
-            }, completion: nil
-        )
+    func showDetails(withBuilding building: Building) {
+        showDetailsAction?(building)
     }
 
 }

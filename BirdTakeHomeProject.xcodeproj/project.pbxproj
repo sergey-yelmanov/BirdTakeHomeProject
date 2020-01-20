@@ -24,6 +24,7 @@
 		452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */; };
 		4550E03C23D5B36D005CA0F6 /* IdentifableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */; };
 		4550E03E23D5B82E005CA0F6 /* UIResponder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */; };
+		4550E04023D5C56F005CA0F6 /* MapViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E03F23D5C56F005CA0F6 /* MapViewDataProvider.swift */; };
 		455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */; };
 		455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AD23D3667F004BB19F /* UIView+Ext.swift */; };
 		455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */; };
@@ -51,6 +52,7 @@
 		452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingAnnotationView.swift; sourceTree = "<group>"; };
 		4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifableAnnotation.swift; sourceTree = "<group>"; };
 		4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Ext.swift"; sourceTree = "<group>"; };
+		4550E03F23D5C56F005CA0F6 /* MapViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDataProvider.swift; sourceTree = "<group>"; };
 		455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		455A03AD23D3667F004BB19F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				452BC8C123D243E4004B1EB0 /* MapViewController.swift */,
 				452BC8CA23D24B78004B1EB0 /* MapView.swift */,
+				4550E03F23D5C56F005CA0F6 /* MapViewDataProvider.swift */,
 				455A03AF23D367AF004BB19F /* Components */,
 			);
 			path = Map;
@@ -329,6 +332,7 @@
 				451BEB8023D4E5D800358FD4 /* BuildingDetailsView.swift in Sources */,
 				455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */,
 				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
+				4550E04023D5C56F005CA0F6 /* MapViewDataProvider.swift in Sources */,
 				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
 				4550E03C23D5B36D005CA0F6 /* IdentifableAnnotation.swift in Sources */,
 				451BEB7923D4630B00358FD4 /* UIImageView+Ext.swift in Sources */,

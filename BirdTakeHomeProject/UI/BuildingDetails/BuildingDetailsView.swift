@@ -34,24 +34,18 @@ final class BuildingDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life cycle
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        delay(0.01) {
-            if Constants.Device.isPad {
-                self.createGradientLayer()
-            }
-        }
-    }
-
     // MARK: - UI Configuration
 
     private func configureUI() {
         backgroundColor = .white
         configureNameLabel()
         configureImageView()
+
+        delay(0.01) {
+            if Constants.Device.isPad {
+                self.createGradientLayer()
+            }
+        }
     }
 
     private func createGradientLayer() {
@@ -68,7 +62,7 @@ final class BuildingDetailsView: UIView {
 
     private func configureImageView() {
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = #colorLiteral(red: 0.8316857219, green: 0.831825912, blue: 0.8316672444, alpha: 1)
 
         addSubview(imageView)
 
