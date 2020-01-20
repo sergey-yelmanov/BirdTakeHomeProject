@@ -39,8 +39,10 @@ final class BuildingDetailsView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        if Constants.Device.isPad {
-            createGradientLayer()
+        delay(0.01) {
+            if Constants.Device.isPad {
+                self.createGradientLayer()
+            }
         }
     }
 
@@ -72,7 +74,7 @@ final class BuildingDetailsView: UIView {
 
         Constants.Device.isPhone ? configureImageViewForPhone() : configureImageViewForPad()
 
-        imageView.loadImage(fromUrl: building.image, withPlaceholer: nil)
+        imageView.loadImage(fromUrl: building.image, withPlaceholer: UIImage(named: "icon"))
     }
 
     private func configureImageViewForPhone() {
@@ -95,6 +97,7 @@ final class BuildingDetailsView: UIView {
     // MARK: - Name label configurations
 
     private func configureNameLabel() {
+        nameLabel.textAlignment = .center
         Constants.Device.isPhone ? configureNameLabelForPhone() : configureNameLabelForPad()
     }
 
@@ -102,7 +105,6 @@ final class BuildingDetailsView: UIView {
         nameLabel.text = building.presentableName
         nameLabel.textColor = .black
         nameLabel.font = .boldSystemFont(ofSize: 24)
-        nameLabel.textAlignment = .center
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(nameLabel)
@@ -127,7 +129,8 @@ final class BuildingDetailsView: UIView {
 
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: dimmedView.centerYAnchor),
-            nameLabel.centerXAnchor.constraint(equalTo: dimmedView.centerXAnchor)
+            nameLabel.trailingAnchor.constraint(equalTo: dimmedView.trailingAnchor, constant: -8),
+            nameLabel.leadingAnchor.constraint(equalTo: dimmedView.leadingAnchor, constant: 8)
         ])
     }
 

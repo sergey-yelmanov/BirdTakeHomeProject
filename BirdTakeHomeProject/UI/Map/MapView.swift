@@ -76,12 +76,11 @@ final class MapView: UIView {
     // MARK: - Adding annotations
 
     private func addAnnotations() {
-        var annotations = [Annotation]()
+        var annotations = [IdentifableAnnotation]()
 
-        buildings.forEach {
-            let annotation = Annotation()
-            annotation.title = "\($0.id)"
-            annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+        buildings.enumerated().forEach { index, building in
+            let annotation = IdentifableAnnotation(index: index)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
             annotations.append(annotation)
         }
 
@@ -132,15 +131,10 @@ extension MapView: MKMapViewDelegate {
             }
             mapView.setVisibleMapRect(zoomRect, animated: true)
         } else {
-            guard let temp = annotation.title, let id = Int(temp ?? "") else { return }
+            guard let annotation = annotation as? IdentifableAnnotation else { return }
 
-            for building in buildings {
-                if building.id == id {
-                    showDetailsAction?(building)
-                    mapView.deselectAnnotation(view.annotation, animated: false)
-                    return
-                }
-            }
+            showDetailsAction?(buildings[annotation.index])
+            mapView.deselectAnnotation(view.annotation, animated: false)
         }
     }
 

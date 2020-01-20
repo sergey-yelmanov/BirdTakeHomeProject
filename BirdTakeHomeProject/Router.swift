@@ -10,20 +10,24 @@ import UIKit
 
 final class Router {
 
+    // MARK: - Properties
+    
     private var window: UIWindow!
     static var shared: Router!
 
-    // MARK: - Inits
+    // MARK: - Initializers
 
     init(_ sceneWindow: UIWindow) {
         window = sceneWindow
         Router.shared = self
     }
 
-    func start() {
+    func showStartUpScreen() {
         window.rootViewController = MapViewController()
         window.makeKeyAndVisible()
     }
+
+    // MARK: - Child routers
 
     lazy var buildingsDetails: BuildingDetailsRouter = { BuildingDetailsRouter(mainRouter: self) }()
 

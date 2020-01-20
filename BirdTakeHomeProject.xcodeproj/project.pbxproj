@@ -22,6 +22,8 @@
 		452BC8C923D2489C004B1EB0 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C823D2489C004B1EB0 /* Building.swift */; };
 		452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CA23D24B78004B1EB0 /* MapView.swift */; };
 		452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */; };
+		4550E03C23D5B36D005CA0F6 /* IdentifableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */; };
+		4550E03E23D5B82E005CA0F6 /* UIResponder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */; };
 		455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */; };
 		455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AD23D3667F004BB19F /* UIView+Ext.swift */; };
 		455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */; };
@@ -47,6 +49,8 @@
 		452BC8C823D2489C004B1EB0 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		452BC8CA23D24B78004B1EB0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		452BC8CC23D25098004B1EB0 /* BuildingAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingAnnotationView.swift; sourceTree = "<group>"; };
+		4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifableAnnotation.swift; sourceTree = "<group>"; };
+		4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Ext.swift"; sourceTree = "<group>"; };
 		455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		455A03AD23D3667F004BB19F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		452BC8BB23D24132004B1EB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4550E03A23D5B351005CA0F6 /* Models */,
 				452BC8BD23D241A2004B1EB0 /* Responses */,
 				452BC8BC23D2419A004B1EB0 /* Utils */,
 			);
@@ -161,11 +166,20 @@
 			isa = PBXGroup;
 			children = (
 				452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */,
+				4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */,
 				455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */,
 				455A03AD23D3667F004BB19F /* UIView+Ext.swift */,
 				451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4550E03A23D5B351005CA0F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		455A03AF23D367AF004BB19F /* Components */ = {
@@ -316,12 +330,14 @@
 				455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */,
 				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
 				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
+				4550E03C23D5B36D005CA0F6 /* IdentifableAnnotation.swift in Sources */,
 				451BEB7923D4630B00358FD4 /* UIImageView+Ext.swift in Sources */,
 				452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */,
 				451BEB7723D45A5F00358FD4 /* BuildingDetailsRouter.swift in Sources */,
 				452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */,
 				452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */,
 				455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */,
+				4550E03E23D5B82E005CA0F6 /* UIResponder+Ext.swift in Sources */,
 				452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */,
 				452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */,
 				45D73B5323D3A33300E13FE1 /* Constants.swift in Sources */,

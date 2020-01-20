@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
 
         router = Router(window ?? UIWindow())
-        router.start()
+        router.showStartUpScreen()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

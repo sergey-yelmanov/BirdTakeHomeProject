@@ -13,6 +13,8 @@ extension UIImageView {
 
     func loadImage(fromUrl urlString: String, withPlaceholer placeholder: UIImage?) {
         guard let url = URL(string: urlString) else {
+            contentMode = .center
+            image = UIImage(named: "icon")
             return
         }
 
