@@ -30,15 +30,4 @@ struct Building: Decodable {
         case image = "image_url"
     }
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        self.id = try container.decode(Int.self, forKey: .id)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.address = try container.decode(String.self, forKey: .address)
-        self.latitude = try container.decode(Double.self, forKey: .latitude)
-        self.longitude = try container.decode(Double.self, forKey: .longitude)
-        self.image = try container.decode(String.self, forKey: .image)
-    }
-
 }

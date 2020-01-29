@@ -15,22 +15,20 @@ final class MapViewController: UIViewController {
     private var blurEffectView: UIVisualEffectView!
     private var showAllAnnotationsButton: UIButton!
 
-    private var buildings = Bundle.main.decode([Building].self, from: "buildings.json")
-
     // MARK: - Life cycle
 
     override func loadView() {
         super.loadView()
 
-        removeZeroLocationItems()
         configureUI()
+        fetchData()
     }
 
     // MARK: - UI Configuration
 
     private func configureUI() {
         view.backgroundColor = .white
-        view = MapView(buildings: buildings, showDetailsAction: showDetails)
+        view = MapView(showDetailsAction: showDetails)
         configureShowAllAnnotationsButton()
         configureBlurEffectView()
     }
@@ -100,6 +98,27 @@ final class MapViewController: UIViewController {
         ])
     }
 
+    // MARK: - Networking
+
+    private func fetchData() {
+        APIService().fetchData(class: [Building].self, forResource: "buildings") { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let response):
+                let buildings = self.removeZeroLocationItems(from: response)
+                guard let mapView = self.view as? MapView else { return }
+                mapView.configure(withBuildings: buildings)
+            case .failure(let error):
+                AlertService.showAlert(
+                    vc: self,
+                    title: "Error",
+                    message: error.localizedDescription
+                )
+            }
+        }
+    }
+
     // MARK: - Actions
 
     private func showDetails(withBuilding building: Building) {
@@ -114,8 +133,8 @@ final class MapViewController: UIViewController {
 
     // MARK: - Helpers
 
-    private func removeZeroLocationItems() {
-        buildings.removeAll { $0.longitude == 0 }
+    private func removeZeroLocationItems(from buildings: [Building]) -> [Building] {
+        buildings.filter { $0.longitude != 0}
     }
 
 }

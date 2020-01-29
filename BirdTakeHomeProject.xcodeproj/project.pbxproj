@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4507C46B23E1958E00F9F89F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507C46A23E1958E00F9F89F /* APIService.swift */; };
 		451BEB7523D4593E00358FD4 /* BuildingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7423D4593E00358FD4 /* BuildingDetailsViewController.swift */; };
 		451BEB7723D45A5F00358FD4 /* BuildingDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7623D45A5F00358FD4 /* BuildingDetailsRouter.swift */; };
 		451BEB7923D4630B00358FD4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */; };
@@ -17,7 +18,6 @@
 		452BC8B323D2373E004B1EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8B123D2373E004B1EB0 /* LaunchScreen.storyboard */; };
 		452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8BE23D241BA004B1EB0 /* Router.swift */; };
 		452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C123D243E4004B1EB0 /* MapViewController.swift */; };
-		452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */; };
 		452BC8C723D24862004B1EB0 /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 452BC8C623D24862004B1EB0 /* buildings.json */; };
 		452BC8C923D2489C004B1EB0 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8C823D2489C004B1EB0 /* Building.swift */; };
 		452BC8CB23D24B78004B1EB0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BC8CA23D24B78004B1EB0 /* MapView.swift */; };
@@ -28,11 +28,13 @@
 		455A03AC23D364C8004BB19F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */; };
 		455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03AD23D3667F004BB19F /* UIView+Ext.swift */; };
 		455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */; };
+		45A119B223E1A2410094BCB3 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A119B123E1A2410094BCB3 /* AlertService.swift */; };
 		45D73B5323D3A33300E13FE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D73B5223D3A33300E13FE1 /* Constants.swift */; };
 		FA2B7F95A28F3B36417E9BB0 /* Pods_BirdTakeHomeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4507C46A23E1958E00F9F89F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		451BEB7423D4593E00358FD4 /* BuildingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsViewController.swift; sourceTree = "<group>"; };
 		451BEB7623D45A5F00358FD4 /* BuildingDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsRouter.swift; sourceTree = "<group>"; };
 		451BEB7823D4630B00358FD4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
@@ -45,7 +47,6 @@
 		452BC8B423D2373E004B1EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		452BC8BE23D241BA004B1EB0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		452BC8C123D243E4004B1EB0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Ext.swift"; sourceTree = "<group>"; };
 		452BC8C623D24862004B1EB0 /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
 		452BC8C823D2489C004B1EB0 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		452BC8CA23D24B78004B1EB0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		455A03AD23D3667F004BB19F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		455A03B023D367C5004BB19F /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		45A119B123E1A2410094BCB3 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		45D73B5223D3A33300E13FE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A9E713161763ECFE6844D82 /* Pods-BirdTakeHomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdTakeHomeProject.release.xcconfig"; path = "Target Support Files/Pods-BirdTakeHomeProject/Pods-BirdTakeHomeProject.release.xcconfig"; sourceTree = "<group>"; };
 		82B3C7E6BA5F7839326275E1 /* Pods_BirdTakeHomeProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirdTakeHomeProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4507C46923E1952A00F9F89F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4507C46A23E1958E00F9F89F /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		451BEB7323D458F400358FD4 /* BuildingDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				452BC8BB23D24132004B1EB0 /* Model */,
+				4507C46923E1952A00F9F89F /* Service */,
 				452BC8BA23D2412C004B1EB0 /* UI */,
 				452BC8BE23D241BA004B1EB0 /* Router.swift */,
 				452BC8A623D2373D004B1EB0 /* AppDelegate.swift */,
@@ -123,6 +134,7 @@
 			children = (
 				452BC8C023D243C9004B1EB0 /* Map */,
 				451BEB7323D458F400358FD4 /* BuildingDetails */,
+				45A119B123E1A2410094BCB3 /* AlertService.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -131,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				4550E03A23D5B351005CA0F6 /* Models */,
-				452BC8BD23D241A2004B1EB0 /* Responses */,
 				452BC8BC23D2419A004B1EB0 /* Utils */,
 			);
 			path = Model;
@@ -168,7 +179,6 @@
 		452BC8C323D24706004B1EB0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				452BC8C423D2471F004B1EB0 /* Bundle+Ext.swift */,
 				4550E03D23D5B82E005CA0F6 /* UIResponder+Ext.swift */,
 				455A03AB23D364C8004BB19F /* MKMapView+Ext.swift */,
 				455A03AD23D3667F004BB19F /* UIView+Ext.swift */,
@@ -180,6 +190,7 @@
 		4550E03A23D5B351005CA0F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				452BC8BD23D241A2004B1EB0 /* Responses */,
 				4550E03B23D5B36D005CA0F6 /* IdentifableAnnotation.swift */,
 			);
 			path = Models;
@@ -332,6 +343,7 @@
 				451BEB8023D4E5D800358FD4 /* BuildingDetailsView.swift in Sources */,
 				455A03AE23D3667F004BB19F /* UIView+Ext.swift in Sources */,
 				452BC8BF23D241BA004B1EB0 /* Router.swift in Sources */,
+				4507C46B23E1958E00F9F89F /* APIService.swift in Sources */,
 				4550E04023D5C56F005CA0F6 /* MapViewDataProvider.swift in Sources */,
 				452BC8C923D2489C004B1EB0 /* Building.swift in Sources */,
 				4550E03C23D5B36D005CA0F6 /* IdentifableAnnotation.swift in Sources */,
@@ -339,8 +351,8 @@
 				452BC8CD23D25098004B1EB0 /* BuildingAnnotationView.swift in Sources */,
 				451BEB7723D45A5F00358FD4 /* BuildingDetailsRouter.swift in Sources */,
 				452BC8A723D2373D004B1EB0 /* AppDelegate.swift in Sources */,
-				452BC8C523D2471F004B1EB0 /* Bundle+Ext.swift in Sources */,
 				455A03B123D367C5004BB19F /* CountClusterAnnotationView.swift in Sources */,
+				45A119B223E1A2410094BCB3 /* AlertService.swift in Sources */,
 				4550E03E23D5B82E005CA0F6 /* UIResponder+Ext.swift in Sources */,
 				452BC8C223D243E4004B1EB0 /* MapViewController.swift in Sources */,
 				452BC8A923D2373D004B1EB0 /* SceneDelegate.swift in Sources */,

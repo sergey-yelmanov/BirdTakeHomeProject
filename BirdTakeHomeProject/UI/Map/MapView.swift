@@ -21,12 +21,12 @@ final class MapView: UIView {
 
     // MARK: - Initializers
 
-    init(buildings: [Building], showDetailsAction: @escaping (Building) -> Void) {
+    init(showDetailsAction: @escaping (Building) -> Void) {
         self.showDetailsAction = showDetailsAction
-        self.mapViewDataProvider = MapViewDataProvider(buildings: buildings)
         super.init(frame: .zero)
 
-        configure()
+        configureClusterManager()
+        configureMapView()
     }
 
     required init?(coder: NSCoder) {
@@ -35,17 +35,16 @@ final class MapView: UIView {
 
     // MARK: - Configuration
 
-    private func configure() {
-        configureClusterManager()
-        configureMapView()
+    func configure(withBuildings buildings: [Building]) {
+        mapViewDataProvider = MapViewDataProvider(buildings: buildings)
+        mapView.delegate = mapViewDataProvider
+        mapViewDataProvider.delegate = self
+        mapViewDataProvider.addAnnotations()
     }
 
     private func configureMapView() {
         mapView = MKMapView()
         mapView.pointOfInterestFilter = .excludingAll
-        mapView.delegate = mapViewDataProvider
-        mapViewDataProvider.delegate = self
-        mapViewDataProvider.addAnnotations()
 
         addSubview(mapView)
 
